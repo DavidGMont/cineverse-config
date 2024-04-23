@@ -1,0 +1,12 @@
+server:
+  compression:
+    enabled: true
+    mime-types: application/json
+    min-response-size: 1024
+  port: 0
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
