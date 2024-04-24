@@ -1,3 +1,7 @@
+loadbalancer:
+  client:
+    name: movie-service
+
 server:
   compression:
     enabled: true
