@@ -1,3 +1,7 @@
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
 loadbalancer:
   client:
     name: movie-service
@@ -16,4 +20,4 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info
+        include: health
