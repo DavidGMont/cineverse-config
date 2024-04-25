@@ -1,0 +1,27 @@
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+server:
+  compression:
+    enabled: true
+    mime-types: application/json
+    min-response-size: 1024
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: catalog-service
+          uri: lb://catalog-service
+          predicates:
+            - Path=/api/v1/catalog/**
